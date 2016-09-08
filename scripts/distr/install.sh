@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARCHIVE_NAME=server.tar.gz
-INSTALL_DIR=/usr/local/template/
+INSTALL_DIR=/usr/local/testtask/
 DISTR_DIR=${INSTALL_DIR}/distr
 
 set -e
