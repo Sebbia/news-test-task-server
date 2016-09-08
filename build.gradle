@@ -1,0 +1,69 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+buildscript {
+    ext {
+        springBootVersion = '1.3.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+   }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+jar {
+    baseName = 'server'
+}
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+}
+
+repositories {
+    maven{
+        url 'http://www.hibernatespatial.org/repository'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+    // основные библиотеки фреймворка
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+    // нужен для logback конфигурации из файлов
+    compile 'org.codehaus.janino:janino:2.7.8'
+
+    // работа с датами
+    compile 'joda-time:joda-time:2.9.4'
+
+    // для корректной конвертации дат в JSON
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.2'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.2'
+
+    // для правильной конвертации даты в БД
+    compile 'org.jadira.usertype:usertype.core:3.2.0.GA'
+
+    // Swagger документация
+    compile 'io.springfox:springfox-swagger2:2.5.0'
+    compile 'io.springfox:springfox-swagger-ui:2.5.0'
+
+    // драйвера базы данных, для подключения к postgre и создания пула соединений
+    compile 'org.hibernate:hibernate-validator:5.1.+'
+    compile 'org.postgresql:postgresql:9.2-1002-jdbc4'
+    compile 'c3p0:c3p0:0.9.1.2'
+
+    // пакет библиотек для тестирования
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    // более удобные запросы по http
+    testCompile 'com.jayway.restassured:rest-assured:2.9.0'
+
+}
