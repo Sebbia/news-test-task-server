@@ -36,10 +36,10 @@ public class Application {
                         "<br/>" +
                         "В зависимости от платформы, задача заключается в следующем:<br/>" +
                         "<br/>" +
-                        "Backend:<br/>" +
+                        "<b>Backend:</b><br/>" +
                         "Нужно в точности повторить описанное ниже API.<br/>" +
                         "<br/>" +
-                        "Frontend (javascript), iOS, Android:<br/>" +
+                        "<b>Frontend (javascript), iOS, Android:</b><br/>" +
                         "Нужно использовать описанное ниже API.<br/>" +
                         "Нужно создать приложение " +
                         "(SPA приложение в случае frontend, нативное мобильное приложение в случае iOS и Android), " +
