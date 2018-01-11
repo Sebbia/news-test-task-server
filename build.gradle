@@ -1,18 +1,19 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-
 buildscript {
     ext {
         springBootVersion = '1.3.7.RELEASE'
     }
     repositories {
-        mavenCentral()
+        jcenter()
+//        mavenCentral()
    }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
 jar {
     baseName = 'server'
@@ -26,10 +27,11 @@ idea {
 }
 
 repositories {
-    maven{
-        url 'http://www.hibernatespatial.org/repository'
-    }
-    mavenCentral()
+//    maven{
+//        url 'http://www.hibernatespatial.org/repository'
+//    }
+    jcenter()
+//    mavenCentral()
 }
 
 dependencies {
